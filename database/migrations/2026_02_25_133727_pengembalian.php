@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('petugas', function (Blueprint $table) {
-            $table->id('id_petugas');
-            $table->string('nama_petugas', 100);
-            $table->string('username', 50);
-            $table->string('password', 255);
-            $table->string('posisi', 255);
+        Schema::create('pengembalian', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('peminjaman_id')->constrained('peminjaman')->onDelete('cascade');
+            $table->date('return_date');
+            $table->integer('late_fee')->default(0); 
+            $table->text('notes')->nullable(); 
             $table->timestamps();
-        });
+    });
     }
 
     /**

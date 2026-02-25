@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',    // <--- Tambahkan ini
+        'phone',   // <--- Tambahkan ini
+        'address', // <--- Tambahkan ini
     ];
 
     /**
@@ -44,5 +47,17 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // app/Models/User.php
+    public function peminjamans()
+    {
+        return $this->hasMany(Peminjaman::class);
+    }
+
+    // Helper untuk cek admin (biar coding di controller nanti rapi)
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
     }
 }

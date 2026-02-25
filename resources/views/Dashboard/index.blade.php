@@ -1,71 +1,36 @@
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+@extends('layouts.admin')
 
-<body class="page page--dashboard">
-    <div class="dashboard">
+@section('content')
+<h1 class="text-2xl font-bold mb-6 text-gray-800">Dashboard Overview</h1>
 
-        <header class="dashboard__header">
-            <h2 class="dashboard__title">
-                Welcome, {{ session('admin')['name'] ?? 'Admin' }}
-
-            </h2>
-            <p class="dashboard__subtitle">
-                Selamat datang di Admin Panel
-            </p>
-        </header>
-
-        <div class="dashboard__stats">
-            <div class="card">
-                <p class="card__label">Total Buku</p>
-                <p class="card__value">{{ $totalBuku }}</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="bg-white p-6 rounded-lg shadow border-l-4 border-blue-500">
+        <div class="flex justify-between items-center">
+            <div>
+                <p class="text-gray-500 text-sm">Total Buku</p>
+                <h2 class="text-3xl font-bold">{{ $totalBuku ?? 0 }}</h2>
             </div>
-
-            <div class="card">
-                <p class="card__label">Total Petugas</p>
-                <p class="card__value">{{ $totalPetugas }}</p>
-            </div>
+            <i class="fas fa-book text-3xl text-blue-200"></i>
         </div>
-
-        <div class="dashboard__grid">
-
-            <div class="panel">
-                <h3 class="panel__title">Buku Terbaru</h3>
-                <ul class="panel__list">
-                    @forelse($bukuTerbaru as $buku)
-                        <li class="panel__item">
-                            <span>{{ $buku->judul }}</span>
-                            <small>{{ $buku->created_at->format('d M Y') }}</small>
-                        </li>
-                    @empty
-                        <li class="panel__empty">Belum ada data</li>
-                    @endforelse
-                </ul>
-            </div>
-
-            <div class="panel">
-                <h3 class="panel__title">Petugas Terbaru</h3>
-                <ul class="panel__list">
-                    @forelse($petugasTerbaru as $petugas)
-                        <li class="panel__item">
-                            <span>{{ $petugas->nama }}</span>
-                            <small>{{ $petugas->created_at->format('d M Y') }}</small>
-                        </li>
-                    @empty
-                        <li class="panel__empty">Belum ada data</li>
-                    @endforelse
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="dashboard__actions">
-            <a href="/buku" class="btn btn--secondary">Kelola Buku</a>
-            <a href="/petugas" class="btn btn--secondary">Kelola Petugas</a>
-        </div>
-
-        <form action="/logout" method="POST" class="dashboard__logout">
-            @csrf
-            <button class="btn btn--danger">Logout</button>
-        </form>
-
     </div>
-</body>
+
+    <div class="bg-white p-6 rounded-lg shadow border-l-4 border-green-500">
+        <div class="flex justify-between items-center">
+            <div>
+                <p class="text-gray-500 text-sm">Petugas & User</p>
+                <h2 class="text-3xl font-bold">{{ $totalPetugas ?? 0 }}</h2>
+            </div>
+            <i class="fas fa-users text-3xl text-green-200"></i>
+        </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow border-l-4 border-yellow-500">
+        <div class="flex justify-between items-center">
+            <div>
+                <p class="text-gray-500 text-sm">Peminjaman Aktif</p>
+                <h2 class="text-3xl font-bold">0</h2> </div>
+            <i class="fas fa-clock text-3xl text-yellow-200"></i>
+        </div>
+    </div>
+</div>
+@endsection
