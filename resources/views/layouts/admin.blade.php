@@ -21,14 +21,17 @@
                 <a href="{{ route('buku.index') }}" class="block px-4 py-2 rounded hover:bg-slate-700 {{ request()->routeIs('buku.*') ? 'bg-blue-600' : '' }}">
                     <i class="fas fa-book w-6"></i> Data Buku
                 </a>
-                <a href="#" class="block px-4 py-2 rounded hover:bg-slate-700">
+                <a href="{{ route('transaksi.peminjaman') }}" class="block px-4 py-2 rounded hover:bg-slate-700 {{ request()->routeIs('transaksi.peminjaman') ? 'bg-blue-600' : '' }}">
                     <i class="fas fa-exchange-alt w-6"></i> Peminjaman
                 </a>
-                <a href="#" class="block px-4 py-2 rounded hover:bg-slate-700">
+                <a href="{{ route('transaksi.pengembalian') }}" class="block px-4 py-2 rounded hover:bg-slate-700 {{ request()->routeIs('transaksi.pengembalian') ? 'bg-blue-600' : '' }}">
                     <i class="fas fa-undo w-6"></i> Pengembalian
                 </a>
                 <a href="{{ route('petugas.index') }}" class="block px-4 py-2 rounded hover:bg-slate-700 {{ request()->routeIs('petugas.*') ? 'bg-blue-600' : '' }}">
                     <i class="fas fa-users w-6"></i> Petugas/User
+                </a>
+                <a href="{{ route('profile.index') }}" class="block px-4 py-2 rounded hover:bg-slate-700 {{ request()->routeIs('profile.index') ? 'bg-blue-600' : '' }}">
+                    <i class="fas fa-user-circle w-6"></i> Profil Saya
                 </a>
             </nav>
             <div class="p-4 border-t border-slate-700">

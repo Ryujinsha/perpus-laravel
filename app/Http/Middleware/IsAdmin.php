@@ -6,8 +6,9 @@ use Closure;
 use Illuminate\Http\Request; 
 use Symfony\Component\HttpFoundation\Response; 
 use Illuminate\Support\Facades\Session;  
+use Illuminate\Support\Facades\Auth;
  
-class LoginCheck 
+class IsAdmin 
 { 
     /** 
      * Handle an incoming request. 
