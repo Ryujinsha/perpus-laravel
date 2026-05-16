@@ -13,6 +13,6 @@ class DashboardController extends Controller
         $totalBuku = Buku::count(); 
         $totalPetugas = User::where('role', 'admin')->count();
 
-        return view('dashboard.index', compact('totalBuku', 'totalPetugas'));
+        return view('Dashboard.index', compact('totalBuku', 'totalPetugas'));
     }
 }

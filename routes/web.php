@@ -16,7 +16,6 @@ Route::get('/mitra', function () {
     return view('mitra');
 })->name('mitra');
 Route::get('/katalog', [PublicController::class, 'katalog'])->name('public.katalog');
-Route::get('/buku/{id}', [PublicController::class, 'show'])->name('public.detail');
 
 
 
@@ -52,19 +51,8 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
         Route::put('/update/{id}', [BukuController::class, 'update'])->name('update'); 
         
         Route::delete('/delete/{id}', [BukuController::class, 'delete'])->name('delete'); 
-        Route::get('/search', [BukuController::class, 'search'])->name('search');
     });
 
-    Route::prefix('petugas')->name('petugas.')->group(function () {
-        Route::get('/', [PetugasController::class, 'index'])->name('index');
-        Route::post('/store', [PetugasController::class, 'store'])->name('store');
-        
-        Route::get('/edit/{id}', [PetugasController::class, 'edit'])->name('edit');
-        Route::put('/update/{id}', [PetugasController::class, 'update'])->name('update');
-        
-        Route::delete('/delete/{id}', [PetugasController::class, 'delete'])->name('delete');
-        Route::get('/search', [PetugasController::class, 'search'])->name('search');
-    });
     Route::prefix('transaksi')->name('transaksi.')->group(function () {
         Route::get('/peminjaman', [TransaksiController::class, 'peminjaman'])->name('peminjaman');
         Route::get('/pengembalian', [TransaksiController::class, 'pengembalian'])->name('pengembalian');
@@ -73,3 +61,5 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
         Route::post('/kembalikan/{id}', [TransaksiController::class, 'returnBook'])->name('kembalikan'); 
     });
 });
+
+Route::get('/buku/{id}', [PublicController::class, 'show'])->name('public.detail');

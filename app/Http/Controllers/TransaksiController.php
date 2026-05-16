@@ -17,10 +17,9 @@ class TransaksiController extends Controller
 
     public function peminjaman()
     {
-        $pending = Peminjaman::with(['user', 'buku'])->where('status', 'pending')->latest()->get();
-        $berjalan = Peminjaman::with(['user', 'buku'])->where('status', 'active')->latest()->get();
+        $peminjaman = Peminjaman::with(['user', 'buku'])->latest()->get();
         
-        return view('transaksi.peminjaman', compact('pending', 'berjalan'));
+        return view('transaksi.peminjaman', compact('peminjaman'));
     }
 
     public function pengembalian()

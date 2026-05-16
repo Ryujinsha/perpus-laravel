@@ -74,7 +74,7 @@
                             </td>
                             
                             <td class="px-6 py-4">
-                                <p class="font-bold text-gray-800 line-clamp-1">{{ $item->book->title ?? 'Buku Dihapus' }}</p>
+                                <p class="font-bold text-gray-800 line-clamp-1">{{ $item->buku->title ?? 'Buku Dihapus' }}</p>
                             </td>
 
                             <td class="px-6 py-4 text-sm text-gray-600">

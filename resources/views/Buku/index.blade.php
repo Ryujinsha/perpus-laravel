@@ -10,8 +10,8 @@
 
 <div class="bg-white rounded-lg shadow overflow-hidden">
     <div class="p-4 border-b">
-        <form action="{{ route('buku.search') }}" method="GET">
-            <input type="text" name="search" placeholder="Cari judul atau penulis..." class="w-full md:w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <form action="{{ route('buku.index') }}" method="GET">
+            <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari judul atau penulis..." class="w-full md:w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
         </form>
     </div>
 

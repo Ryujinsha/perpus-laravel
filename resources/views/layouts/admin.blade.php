@@ -12,7 +12,7 @@
     <div class="flex h-screen overflow-hidden">
         <aside class="w-64 bg-slate-800 text-white hidden md:flex flex-col">
             <div class="p-6 text-2xl font-bold border-b border-slate-700">
-                Admin Panel
+                <a href="{{route('home')}}"> Admin Panel</a>
             </div>
             <nav class="flex-1 px-4 py-6 space-y-2">
                 <a href="{{ route('dashboard') }}" class="block px-4 py-2 rounded hover:bg-slate-700 {{ request()->routeIs('dashboard') ? 'bg-blue-600' : '' }}">
@@ -26,9 +26,6 @@
                 </a>
                 <a href="{{ route('transaksi.pengembalian') }}" class="block px-4 py-2 rounded hover:bg-slate-700 {{ request()->routeIs('transaksi.pengembalian') ? 'bg-blue-600' : '' }}">
                     <i class="fas fa-undo w-6"></i> Pengembalian
-                </a>
-                <a href="{{ route('petugas.index') }}" class="block px-4 py-2 rounded hover:bg-slate-700 {{ request()->routeIs('petugas.*') ? 'bg-blue-600' : '' }}">
-                    <i class="fas fa-users w-6"></i> Petugas/User
                 </a>
                 <a href="{{ route('profile.index') }}" class="block px-4 py-2 rounded hover:bg-slate-700 {{ request()->routeIs('profile.index') ? 'bg-blue-600' : '' }}">
                     <i class="fas fa-user-circle w-6"></i> Profil Saya
